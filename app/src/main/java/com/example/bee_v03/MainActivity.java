@@ -3,6 +3,7 @@ package com.example.bee_v03;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -12,6 +13,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
@@ -20,6 +22,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     TabLayout tabLayout;
     ViewPager viewPager;
     DrawerLayout drawer;
+    FloatingActionButton fab;
+    FloatingActionButton fab3;
+    FloatingActionButton fab2;
+    FloatingActionButton fab1;
+    boolean isFabOpen;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +73,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
+
+        fab = (FloatingActionButton) findViewById(R.id.fab_main);
+        fab3 = (FloatingActionButton) findViewById(R.id.fab_main3);
+        fab2 = (FloatingActionButton) findViewById(R.id.fab_main2);
+        fab1 = (FloatingActionButton) findViewById(R.id.fab_main1);
+        isFabOpen = false;
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isFabOpen) {
+                    fabsClose();
+                }
+                else fabsOpen();
+            }
+        });
+
+    }
+
+    private void fabsOpen() {
+        isFabOpen = true;
+        fab1.animate().translationY(-170);
+        fab2.animate().translationY(-320);
+        fab3.animate().translationY(-470);
+    }
+
+    private void fabsClose() {
+        isFabOpen = false;
+        fab1.animate().translationY(0);
+        fab2.animate().translationY(0);
+        fab3.animate().translationY(0);
     }
 
     @Override
