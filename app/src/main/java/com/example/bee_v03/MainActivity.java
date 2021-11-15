@@ -111,15 +111,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Intent intent = null;
         switch (item.getItemId()) {
             case R.id.nav_dashboard: break;
+            case R.id.nav_global:
+                intent = new Intent(this, com.example.bee_v03.GlobalActivity.class);
+                startActivity(intent);
+                break;
             case R.id.nav_select:
                 intent = new Intent(this, com.example.bee_v03.SelectActivity.class);
                 startActivity(intent);
-
                 break;
             case R.id.nav_settings:
                 intent = new Intent(this, SettingsActivity.class);
                 startActivity(intent);
-
                 break;
         }
 

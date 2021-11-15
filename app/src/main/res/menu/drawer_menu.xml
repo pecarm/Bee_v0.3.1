@@ -9,6 +9,10 @@
             android:icon="@drawable/ic_dashboard"
             android:title="Dashboard" />
         <item
+            android:id="@+id/nav_global"
+            android:icon="@drawable/ic_global"
+            android:title="Global stats" />
+        <item
             android:id="@+id/nav_select"
             android:icon="@drawable/ic_select"
             android:title="Select unit" />
